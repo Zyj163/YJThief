@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'YJThief_Example' do
+  pod 'YJThief', :path => '../'
+
+  target 'YJThief_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

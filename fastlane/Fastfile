@@ -7,7 +7,7 @@ commitMessage = options[:message]
 #actions
 
 #0. 修改podspecs中version
-write_tag(tag: "#{tagName}", rl: "YJThief.podspec")
+write_tag(tag: "#{tagName}")
 
 #1. carthage
 carthage(

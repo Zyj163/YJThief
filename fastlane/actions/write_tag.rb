@@ -11,17 +11,26 @@ module Fastlane
 		tag = params[:tag]
 		rl = params[:rl]
 		
-		File.open(rl,'r+'){|f|
-		str=""
-		f.each_line{|l|
-		ss=l.gsub!(/[\s?]s.version[\s?]=[\s?]{1}/,"#")
-		if ss
-		str+="s.version = " + tag
+		if !rl
+		rl = Dir.glob('*.podspec')[0]
 		end
-		}
-		f.write str
-		}
 		
+		str=""
+		File.open(rl,'r'){|f|
+			f.each_line{|l|
+			ss=l.gsub!(/s.version\s*=/,"#")
+				if ss
+				UI.message("write tag #{tag} to #{rl}")
+				str+="  s.version          = '#{tag}'\n"
+				else
+				str+=l
+				end
+			}
+		}
+		file=File.new(rl, 'w')
+		file.write str
+		file.close
+	
       end
 #描述
       def self.description
@@ -43,7 +52,7 @@ module Fastlane
 									   ),
           FastlaneCore::ConfigItem.new(key: :rl,
                                        description: "podspecs文件路径",
-									   optional: false,
+									   optional: true,
                                        is_string: true)
         ]
       end

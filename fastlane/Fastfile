@@ -13,6 +13,14 @@ no_skip_current: true,
 platform: "iOS"
 )
 
+cocoapods(
+
+clean:true,
+
+podfile:"Example/Podfile"#相对于根目录
+
+)
+
 #2. git add .    git commit -m "xx"    git push origin master
 git_add(path: ".")
 

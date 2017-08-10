@@ -11,6 +11,7 @@
 #endif
 
 #import "UIWindow+YJExtension.h"
+#import "YJRegexte.h"
 #import "YJSingleton.h"
 #import "YJTimerManager.h"
 

@@ -12,6 +12,8 @@
 
 #import "YJSingleton.h"
 #import "YJTimerManager.h"
+#import "YJSingleton.h"
+#import "YJTimerManager.h"
 
 FOUNDATION_EXPORT double YJThiefVersionNumber;
 FOUNDATION_EXPORT const unsigned char YJThiefVersionString[];

@@ -35,7 +35,12 @@ Pod::Spec.new do |s|
 s.subspec 'YJTimerManager' do |t|
 
 t.source_files = 'YJThief/Classes/YJTimerManager/*'
-t.dependency 'YJThief/YJSingleten'
+
+end
+
+s.subspec 'YJSingleton' do |i|
+
+i.source_files = 'YJThief/Classes/YJSingleton/*'
 
 end
 

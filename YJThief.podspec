@@ -30,21 +30,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-# s.source_files = 'YJThief/Classes/**/*'
-
-s.subspec 'YJTimerManager' do |t|
-
-t.name             = 'YJTimerManager'
-t.source_files = 'YJThief/Classes/YJTimerManager/*'
-
-end
-
-s.subspec 'YJSingleton' do |i|
-
-i.name             = 'YJSingleton'
-i.source_files = 'YJThief/Classes/YJSingleton/*'
-
-end
+s.source_files = 'YJThief/Classes/**/*'
 
   # s.resource_bundles = {
   #   'YJThief' => ['YJThief/Assets/*.png']

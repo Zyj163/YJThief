@@ -18,14 +18,5 @@
   "platforms": {
     "ios": "8.0"
   },
-  "subspecs": [
-    {
-      "name": "YJTimerManager",
-      "source_files": "YJThief/Classes/YJTimerManager/*"
-    },
-    {
-      "name": "YJSingleton",
-      "source_files": "YJThief/Classes/YJSingleton/*"
-    }
-  ]
+  "source_files": "YJThief/Classes/**/*"
 }

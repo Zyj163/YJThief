@@ -1,9 +1,5 @@
 PODS:
-  - YJThief (0.1.0):
-    - YJThief/YJSingleton (= 0.1.0)
-    - YJThief/YJTimerManager (= 0.1.0)
-  - YJThief/YJSingleton (0.1.0)
-  - YJThief/YJTimerManager (0.1.0)
+  - YJThief (0.1.0)
 
 DEPENDENCIES:
   - YJThief (from `../`)
@@ -13,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  YJThief: 6815b91bf5c8e68a0fab19462832ee213b928a86
+  YJThief: 04f8a82b70fefb23bdf267d3df8cfdd88aa228ce
 
 PODFILE CHECKSUM: c977af7c2253d4cd4cf5f2481a4a528035486312
 

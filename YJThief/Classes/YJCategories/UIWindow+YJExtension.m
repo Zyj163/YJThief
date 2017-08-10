@@ -164,7 +164,7 @@ UIViewController *topViewController(UIViewController *result)
 	__weak typeof(self) ws = self;
 	dispatch_group_notify(group, dispatch_get_main_queue(), ^{
 		__strong typeof(ws) self = ws;
-		[self setShown:@(YES)];
+		[self setShown:YES];
 	});
 }
 

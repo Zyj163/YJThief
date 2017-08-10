@@ -6,6 +6,9 @@ commitMessage = options[:message]
 
 #actions
 
+#0. 修改podspecs中version
+write_tag(tag: "#{tagName}", rl: "YJThief.podspec")
+
 #1. carthage
 carthage(
 command: "build",
@@ -14,11 +17,8 @@ platform: "iOS"
 )
 
 cocoapods(
-
 clean:true,
-
-podfile:"Example/Podfile"#相对于根目录
-
+podfile:"Example/Podfile"
 )
 
 #2. git add .    git commit -m "xx"    git push origin master

@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "UIWindow+YJExtension.h"
 #import "YJSingleton.h"
 #import "YJTimerManager.h"
 

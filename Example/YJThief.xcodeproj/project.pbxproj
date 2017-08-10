@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57977F311F3C0C0100695A2C /* YJThief.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57977F301F3C0C0100695A2C /* YJThief.framework */; };
 		57C1710A1F3B1D2E003A1EE0 /* YJInnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C171091F3B1D2E003A1EE0 /* YJInnerViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -42,6 +43,7 @@
 		354323D7D0FD5C6EF1946830 /* Pods-YJThief_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJThief_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJThief_Example/Pods-YJThief_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5327D3A8DBCA03233AE94AAB /* Pods-YJThief_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YJThief_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YJThief_Tests/Pods-YJThief_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5687A4B5E982490D0AA6139A /* Pods_YJThief_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YJThief_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57977F301F3C0C0100695A2C /* YJThief.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YJThief.framework; path = "../../../Library/Developer/Xcode/DerivedData/YJThief-hafdbepuqfjjlhbduikafxussggu/Build/Products/Debug-iphonesimulator/YJThief/YJThief.framework"; sourceTree = "<group>"; };
 		57C171081F3B1D2E003A1EE0 /* YJInnerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJInnerViewController.h; sourceTree = "<group>"; };
 		57C171091F3B1D2E003A1EE0 /* YJInnerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJInnerViewController.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* YJThief_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJThief_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57977F311F3C0C0100695A2C /* YJThief.framework in Frameworks */,
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
@@ -122,6 +125,7 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				57977F301F3C0C0100695A2C /* YJThief.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,

@@ -22,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	self.title = @"timer";
 	
 	__weak typeof(self) ws = self;
 	

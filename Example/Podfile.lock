@@ -1,0 +1,16 @@
+PODS:
+  - YJThief (0.1.0)
+
+DEPENDENCIES:
+  - YJThief (from `../`)
+
+EXTERNAL SOURCES:
+  YJThief:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  YJThief: d22fd95a735ad46e9765e841511838f2ba8228dc
+
+PODFILE CHECKSUM: c977af7c2253d4cd4cf5f2481a4a528035486312
+
+COCOAPODS: 1.2.1

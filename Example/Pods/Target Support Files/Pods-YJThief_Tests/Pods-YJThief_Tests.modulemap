@@ -1,0 +1,6 @@
+framework module Pods_YJThief_Tests {
+  umbrella header "Pods-YJThief_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

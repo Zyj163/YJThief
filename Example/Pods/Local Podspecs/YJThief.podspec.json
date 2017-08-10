@@ -1,0 +1,22 @@
+{
+  "name": "YJThief",
+  "version": "0.1.0",
+  "summary": "A short description of YJThief.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Zyj163/YJThief",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Zyj163": "zhangyongjun@pj-l.com"
+  },
+  "source": {
+    "git": "https://github.com/Zyj163/YJThief.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "YJThief/Classes/**/*"
+}

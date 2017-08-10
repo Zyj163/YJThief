@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'YJThief'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of YJThief.'
+  s.summary          = '开发中常用的'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,20 +18,27 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+开发中常用到的一些控件，工具类，分类等
                        DESC
 
   s.homepage         = 'https://github.com/Zyj163/YJThief'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Zyj163' => 'zhangyongjun@pj-l.com' }
+  s.author           = { 'Zyj163' => 'zyj194250@163.com' }
   s.source           = { :git => 'https://github.com/Zyj163/YJThief.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'YJThief/Classes/**/*'
-  
+
+s.subspec 'YJTimerManager' do |t|
+
+t.source_files = 'YJThief/Classes/YJTimerManager/*'
+t.dependency 'YJThief/YJSingleten'
+
+end
+
   # s.resource_bundles = {
   #   'YJThief' => ['YJThief/Assets/*.png']
   # }

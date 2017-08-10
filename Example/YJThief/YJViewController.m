@@ -8,6 +8,7 @@
 
 #import "YJViewController.h"
 #import "UIWindow+YJExtension.h"
+#import "UIViewController+YJNavLoading.h"
 
 @interface YJViewController ()
 
@@ -18,6 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	[self yj_setTitle:@"托尔斯泰"];
 	
 	NSLog(@"%@", getCurrentVC(getCurrentWindow()));
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickOnCover:) name:UIWindowClickOnAnimationContainer object:nil];
@@ -46,6 +48,15 @@
 			container.subviews[0].layer.bounds = CGRectMake(0, 0, 0, 0);
 		}];
 	}];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+//	UIActivityIndicatorView *v = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//	v.tintColor = [UIColor redColor];
+//	self.loading ? [self stopLoading] : [self startLoadingByActivityIndicatorView:(UIView<YJNavLoading> *)v];
+	
+	self.loading ? [self stopLoading] : [self startLoading];
 }
 
 @end

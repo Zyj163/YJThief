@@ -1,5 +1,5 @@
 PODS:
-  - YJThief (0.3.0)
+  - YJThief (0.4.0)
 
 DEPENDENCIES:
   - YJThief (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  YJThief: 1e9f24ec930dadb956546d84ff3776f13c9ac075
+  YJThief: c298b4be86eb9618c719a6dbc647b80fac928157
 
 PODFILE CHECKSUM: c977af7c2253d4cd4cf5f2481a4a528035486312
 

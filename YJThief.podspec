@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'YJThief/Classes/**/*'
+# s.source_files = 'YJThief/Classes/**/*'
 
 s.subspec 'YJTimerManager' do |t|
 

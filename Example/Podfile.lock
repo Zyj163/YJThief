@@ -1,5 +1,9 @@
 PODS:
-  - YJThief (0.4.0)
+  - YJThief (0.5.0):
+    - YYCategories
+  - YYCategories (1.0.4):
+    - YYCategories/no-arc (= 1.0.4)
+  - YYCategories/no-arc (1.0.4)
 
 DEPENDENCIES:
   - YJThief (from `../`)
@@ -9,7 +13,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  YJThief: c298b4be86eb9618c719a6dbc647b80fac928157
+  YJThief: a3b0a4eda635a14adeaf3d06ef2a01173225a1a2
+  YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
 PODFILE CHECKSUM: c977af7c2253d4cd4cf5f2481a4a528035486312
 

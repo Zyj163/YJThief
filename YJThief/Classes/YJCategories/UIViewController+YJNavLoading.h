@@ -10,7 +10,6 @@
 
 @protocol YJNavLoading <NSObject>
 
-@property (assign, nonatomic) BOOL hidesWhenStopped;
 @property (assign, nonatomic, getter=isAnimating) BOOL animating;
 
 - (void)startAnimating;
@@ -29,6 +28,7 @@
 
 - (void)stopLoading;
 
-@property (assign, nonatomic) BOOL loading;
+@property (assign, nonatomic, readonly) BOOL loading;
+@property (assign, nonatomic, readonly) CGSize activityIndicatorViewSize;
 
 @end

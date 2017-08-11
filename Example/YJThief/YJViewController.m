@@ -9,6 +9,7 @@
 #import "YJViewController.h"
 #import "UIWindow+YJExtension.h"
 #import "UIViewController+YJNavLoading.h"
+#import "UIBarButtonItem+YJExtension.h"
 
 @interface YJViewController ()
 

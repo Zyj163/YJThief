@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YJThief'
-  s.version          = '0.5.0'
+  s.version          = '0.6.0'
   s.summary          = '开发中常用的'
 
 # This description is used to generate tags and improve search results.
@@ -37,6 +37,7 @@ s.source_files = 'YJThief/Classes/**/*'
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.frameworks = 'UIKit', 'MobileCoreServices'
   s.dependency 'YYCategories'
+  s.dependency 'Masonry'
 end

@@ -7,9 +7,8 @@
 //
 
 #import "YJViewController.h"
-#import "UIWindow+YJExtension.h"
-#import "UIViewController+YJNavLoading.h"
-#import "UIBarButtonItem+YJExtension.h"
+#import "YJCategories.h"
+#import "YJImagePickerManager.h"
 
 @interface YJViewController ()
 

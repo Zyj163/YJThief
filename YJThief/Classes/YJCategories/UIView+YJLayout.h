@@ -10,6 +10,8 @@
 
 @interface UIView (YJLayout)
 
+@property (assign, nonatomic) UIEdgeInsets edgeLines;
 
+@property (strong, nonatomic) NSMutableArray *edgeLineViews;
 
 @end

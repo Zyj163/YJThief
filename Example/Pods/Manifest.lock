@@ -1,5 +1,7 @@
 PODS:
-  - YJThief (0.5.0):
+  - Masonry (1.0.2)
+  - YJThief (0.6.0):
+    - Masonry
     - YYCategories
   - YYCategories (1.0.4):
     - YYCategories/no-arc (= 1.0.4)
@@ -13,7 +15,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  YJThief: a3b0a4eda635a14adeaf3d06ef2a01173225a1a2
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  YJThief: afe296de257f3df06910f87b51c8c19d277a7275
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
 PODFILE CHECKSUM: c977af7c2253d4cd4cf5f2481a4a528035486312

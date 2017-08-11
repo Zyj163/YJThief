@@ -10,10 +10,10 @@
 
 @interface UIAlertController (YJExtension)
 
-+ (void)showTitle:(NSString *)title message:(NSString *)message callback:(void(^)())callback;
++ (void)yj_showTitle:(NSString *)title message:(NSString *)message callback:(void(^)())callback;
 
-+ (void)showTitle:(NSString *)title message:(NSString *)message cancel:(NSString *)cancel sure:(NSString *)sure callback:(void(^)())callback;
++ (void)yj_showTitle:(NSString *)title message:(NSString *)message cancel:(NSString *)cancel sure:(NSString *)sure callback:(void(^)())callback;
 
-+ (void)showSheetTitle:(NSString *)title message:(NSString *)message actionNames:(NSArray<NSString *>*)actionNames callback:(void(^)(NSString *actionName))callback;
++ (void)yj_showSheetTitle:(NSString *)title message:(NSString *)message actionNames:(NSArray<NSString *>*)actionNames callback:(void(^)(NSString *actionName))callback;
 
 @end

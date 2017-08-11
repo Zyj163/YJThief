@@ -10,10 +10,10 @@
 
 @interface UIBarButtonItem (YJExtension)
 
-+ (UIBarButtonItem *)customView:(NSString *)imageName title:(NSString *)title withTarget:(id)target action:(SEL)action;
-- (void)changeTarget:(id)target action:(SEL)action;
++ (UIBarButtonItem *)yj_customView:(NSString *)imageName title:(NSString *)title withTarget:(id)target action:(SEL)action;
+- (void)yj_changeTarget:(id)target action:(SEL)action;
 
-+ (UIBarButtonItem *)customView:(NSString *)imageName title:(NSString *)title block:(void (^)(id sender))block;
-- (void)changeBlock:(void (^)(id sender))block;
++ (UIBarButtonItem *)yj_customView:(NSString *)imageName title:(NSString *)title block:(void (^)(id sender))block;
+- (void)yj_changeBlock:(void (^)(id sender))block;
 
 @end

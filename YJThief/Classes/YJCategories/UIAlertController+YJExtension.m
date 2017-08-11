@@ -11,12 +11,12 @@
 
 @implementation UIAlertController (YJExtension)
 
-+ (void)showTitle:(NSString *)title message:(NSString *)message callback:(void (^)())callback
++ (void)yj_showTitle:(NSString *)title message:(NSString *)message callback:(void (^)())callback
 {
-	[self showTitle:title message:message cancel:@"取消" sure:@"确定" callback:callback];
+	[self yj_showTitle:title message:message cancel:@"取消" sure:@"确定" callback:callback];
 }
 
-+ (void)showTitle:(NSString *)title message:(NSString *)message cancel:(NSString *)cancel sure:(NSString *)sure callback:(void (^)())callback
++ (void)yj_showTitle:(NSString *)title message:(NSString *)message cancel:(NSString *)cancel sure:(NSString *)sure callback:(void (^)())callback
 {
 	UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
 	
@@ -33,11 +33,11 @@
 	[alertVc addAction:surebtn];
 	
 	dispatch_async(dispatch_get_main_queue(), ^{
-		[getCurrentVC(getCurrentWindow()) presentViewController:alertVc animated:YES completion:nil];
+		[yj_getCurrentVC(yj_getCurrentWindow()) presentViewController:alertVc animated:YES completion:nil];
 	});
 }
 
-+ (void)showSheetTitle:(NSString *)title message:(NSString *)message actionNames:(NSArray<NSString *>*)actionNames callback:(void(^)(NSString *actionName))callback
++ (void)yj_showSheetTitle:(NSString *)title message:(NSString *)message actionNames:(NSArray<NSString *>*)actionNames callback:(void(^)(NSString *actionName))callback
 {
 	UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
 	for (NSString *actionName in actionNames) {
@@ -53,7 +53,7 @@
 	}];
 	[alertVc addAction:cancel];
 	dispatch_async(dispatch_get_main_queue(), ^{
-		[getCurrentVC(getCurrentWindow()) presentViewController:alertVc animated:YES completion:nil];
+		[yj_getCurrentVC(yj_getCurrentWindow()) presentViewController:alertVc animated:YES completion:nil];
 	});
 }
 

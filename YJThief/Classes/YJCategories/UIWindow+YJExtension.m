@@ -9,37 +9,37 @@
 #import "UIWindow+YJExtension.h"
 #import <objc/runtime.h>
 
-NSString *const UIWindowClickOnAnimationContainer = @"UIWindowClickOnAnimationContainer";
+NSString *const YJWindowClickOnAnimationContainer = @"YJWindowClickOnAnimationContainer";
 
-NSString *const DidAddSubviewToWindow = @"DidAddSubviewToWindow";
-NSString *const DidAddSubviewToWindowKey = @"DidAddSubviewToWindowKey";
+NSString *const YJDidAddSubviewToWindow = @"YJDidAddSubviewToWindow";
+NSString *const YJDidAddSubviewToWindowKey = @"YJDidAddSubviewToWindowKey";
 
 @implementation UIWindow (YJExtension)
 
-- (void)setContainerView:(UIButton *)containerView
+- (void)setYj_containerView:(UIButton *)yj_containerView
 {
-	[self willChangeValueForKey:@"containerView"];
-	objc_setAssociatedObject(self, _cmd, containerView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-	[self didChangeValueForKey:@"containerView"];
+	[self willChangeValueForKey:@"yj_containerView"];
+	objc_setAssociatedObject(self, _cmd, yj_containerView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+	[self didChangeValueForKey:@"yj_containerView"];
 }
 
-- (UIButton *)containerView
+- (UIButton *)yj_containerView
 {
-	return objc_getAssociatedObject(self, @selector(setContainerView:));
+	return objc_getAssociatedObject(self, @selector(setYj_containerView:));
 }
 
-- (void)setShown:(BOOL)shown
+- (void)setYj_shown:(BOOL)yj_shown
 {
-	[self willChangeValueForKey:@"shown"];
-	objc_setAssociatedObject(self, _cmd, @(shown), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-	[self didChangeValueForKey:@"shown"];
+	[self willChangeValueForKey:@"yj_shown"];
+	objc_setAssociatedObject(self, _cmd, @(yj_shown), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+	[self didChangeValueForKey:@"yj_shown"];
 }
 
-- (BOOL)shown
+- (BOOL)yj_shown
 {
-	NSNumber *s = objc_getAssociatedObject(self, @selector(setShown:));
+	NSNumber *s = objc_getAssociatedObject(self, @selector(setYj_shown:));
 	if (!s) {
-		[self setShown:NO];
+		[self setYj_shown:NO];
 		return NO;
 	}
 	return s.boolValue;
@@ -58,10 +58,10 @@ NSString *const DidAddSubviewToWindowKey = @"DidAddSubviewToWindowKey";
 	if (![self respondsToSelector:@selector(my_didAddSubview:)]) return;
 	[self my_didAddSubview:subview];
 	
-	[[NSNotificationCenter defaultCenter]postNotificationName:@"DidAddSubviewToWindow" object:nil userInfo:@{DidAddSubviewToWindowKey : subview}];
+	[[NSNotificationCenter defaultCenter]postNotificationName:YJDidAddSubviewToWindow object:nil userInfo:@{YJDidAddSubviewToWindowKey : subview}];
 }
 
-UIWindow *getCurrentWindow ()
+UIWindow *yj_getCurrentWindow ()
 {
 	NSArray *windows = [[UIApplication sharedApplication] windows];
 	UIWindow *tmpWin;
@@ -76,10 +76,10 @@ UIWindow *getCurrentWindow ()
 	return nil;
 }
 
-UIViewController *getCurrentVC (UIWindow *window)
+UIViewController *yj_getCurrentVC (UIWindow *window)
 {
 	if (!window) {
-		window = getCurrentWindow();
+		window = yj_getCurrentWindow();
 	}
 	UIViewController *result = nil;
 	
@@ -99,17 +99,17 @@ UIViewController *getCurrentVC (UIWindow *window)
 			frontView = nil;
 			continue;
 		}
-		result = topViewController(result);
+		result = yj_topViewController(result);
 		break;
 	}
 	if (frontView == nil) {
 		result = window.rootViewController;
-		result = topViewController(result);
+		result = yj_topViewController(result);
 	}
 	return result;
 }
 
-UIViewController *topViewController(UIViewController *result)
+UIViewController *yj_topViewController(UIViewController *result)
 {
 	if ([result isKindOfClass:[UINavigationController class]]) {
 		result = [result valueForKeyPath:@"topViewController"];
@@ -118,31 +118,31 @@ UIViewController *topViewController(UIViewController *result)
 	} else {
 		return result;
 	}
-	return topViewController(result);
+	return yj_topViewController(result);
 }
 
-- (void)clickOnContainer:(UIButton *)sender
+- (void)yj_clickOnContainer:(UIButton *)sender
 {
-	[[NSNotificationCenter defaultCenter] postNotificationName:UIWindowClickOnAnimationContainer object:nil userInfo:nil];
+	[[NSNotificationCenter defaultCenter] postNotificationName:YJWindowClickOnAnimationContainer object:nil userInfo:nil];
 }
 
-- (UIView *)initialIfNotContainerView
+- (UIView *)yj_initialIfNotContainerView
 {
-	UIButton *containerView = [self containerView];
+	UIButton *containerView = [self yj_containerView];
 	if (!containerView) {
 		containerView = [UIButton new];
-		[self setContainerView:containerView];
+		[self setYj_containerView:containerView];
 		containerView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.2];
-		[containerView addTarget:self action:@selector(clickOnContainer:) forControlEvents:UIControlEventTouchUpInside];
+		[containerView addTarget:self action:@selector(yj_clickOnContainer:) forControlEvents:UIControlEventTouchUpInside];
 	}
 	return containerView;
 }
 
 
-- (void)showInDuration:(NSTimeInterval)duration withAnimation:(void (^)(UIView *))animation
+- (void)yj_showInDuration:(NSTimeInterval)duration withAnimation:(void (^)(UIView *))animation
 {
-	if (self.shown) return;
-	UIView *containerView = [self initialIfNotContainerView];
+	if (self.yj_shown) return;
+	UIView *containerView = [self yj_initialIfNotContainerView];
 	
 	[self addSubview:containerView];
 	[self bringSubviewToFront:containerView];
@@ -164,15 +164,15 @@ UIViewController *topViewController(UIViewController *result)
 	__weak typeof(self) ws = self;
 	dispatch_group_notify(group, dispatch_get_main_queue(), ^{
 		__strong typeof(ws) self = ws;
-		[self setShown:YES];
+		[self setYj_shown:YES];
 	});
 }
 
-- (void)dismissInDuration:(NSTimeInterval)duration withAnimation:(void(^)(UIView *container))animation
+- (void)yj_dismissInDuration:(NSTimeInterval)duration withAnimation:(void(^)(UIView *container))animation
 {
-	if (!self.shown) return;
+	if (!self.yj_shown) return;
 	
-	UIView *containerView = [self initialIfNotContainerView];
+	UIView *containerView = [self yj_initialIfNotContainerView];
 	
 	dispatch_group_t group = dispatch_group_create();
 	
@@ -193,7 +193,7 @@ UIViewController *topViewController(UIViewController *result)
 		__strong typeof(ws) self = ws;
 		[containerView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 		[containerView removeFromSuperview];
-		[self setShown:NO];
+		[self setYj_shown:NO];
 	});
 }
 

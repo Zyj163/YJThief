@@ -37,7 +37,7 @@
 	}
 	
 	label.text = title;
-	titleView.left = 44;
+	titleView.height = 44;
 	
 	[label sizeToFit];
 	label.height = 44;
@@ -48,7 +48,7 @@
 	self.navigationItem.titleView = titleView;
 }
 
-- (BOOL)loading
+- (BOOL)yj_loading
 {
 	UIView<YJNavLoading> *indicatorView;
 	for (UIView *view in self.navigationItem.titleView.subviews) {
@@ -61,17 +61,17 @@
 	return indicatorView ? indicatorView.isAnimating : NO;
 }
 
-- (CGSize)activityIndicatorViewSize
+- (CGSize)yj_activityIndicatorViewSize
 {
-	return CGSizeMake(30, 40);
+	return CGSizeMake(30, 44);
 }
 
-- (void)startLoading
+- (void)yj_startLoading
 {
-	[self startLoadingByActivityIndicatorView:nil];
+	[self yj_startLoadingByActivityIndicatorView:nil];
 }
 
-- (void)startLoadingByActivityIndicatorView:(UIView<YJNavLoading> *)activityIndicatorView
+- (void)yj_startLoadingByActivityIndicatorView:(UIView<YJNavLoading> *)activityIndicatorView
 {
 	if (!self.navigationItem.titleView) return;
 	if (!activityIndicatorView) {
@@ -92,7 +92,7 @@
 	
 	[self.navigationItem.titleView addSubview:activityIndicatorView];
 	
-	activityIndicatorView.size = self.activityIndicatorViewSize;
+	activityIndicatorView.size = self.yj_activityIndicatorViewSize;
 	activityIndicatorView.origin = CGPointMake(0, 0);
 	
 	if (activityIndicatorView.isAnimating) return;
@@ -101,10 +101,10 @@
 	UILabel *label = objc_getAssociatedObject(self.navigationItem.titleView, "titleLabel");
 	
 	label.left = CGRectGetMaxX(activityIndicatorView.frame);
-	self.navigationItem.titleView.width = self.activityIndicatorViewSize.width + label.width;
+	self.navigationItem.titleView.width = self.yj_activityIndicatorViewSize.width + label.width;
 }
 
-- (void)stopLoading
+- (void)yj_stopLoading
 {
 	if (!self.navigationItem.titleView) return;
 	

@@ -8,17 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-UIKIT_EXTERN NSString *const UIWindowClickOnAnimationContainer;
+UIKIT_EXTERN NSString *const YJWindowClickOnAnimationContainer;
 
-UIKIT_EXTERN NSString *const DidAddSubviewToWindow;
-UIKIT_EXTERN NSString *const DidAddSubviewToWindowKey;
+UIKIT_EXTERN NSString *const YJDidAddSubviewToWindow;
+UIKIT_EXTERN NSString *const YJDidAddSubviewToWindowKey;
 
-UIKIT_EXTERN UIWindow *getCurrentWindow();
-UIKIT_EXTERN UIViewController *getCurrentVC(UIWindow *window);
+UIKIT_EXTERN UIWindow *yj_getCurrentWindow();
+UIKIT_EXTERN UIViewController *yj_getCurrentVC(UIWindow *window);
+UIKIT_EXTERN UIViewController *yj_topViewController(UIViewController *result);
 
 @interface UIWindow (YJExtension)
 
-- (void)showInDuration:(NSTimeInterval)duration withAnimation:(void(^)(UIView *container))animation;
-- (void)dismissInDuration:(NSTimeInterval)duration withAnimation:(void(^)(UIView *container))animation;
+- (void)yj_showInDuration:(NSTimeInterval)duration withAnimation:(void(^)(UIView *container))animation;
+- (void)yj_dismissInDuration:(NSTimeInterval)duration withAnimation:(void(^)(UIView *container))animation;
 
 @end

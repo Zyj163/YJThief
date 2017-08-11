@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YJThief'
-  s.version          = '0.6.0'
+  s.version          = '0.7.0'
   s.summary          = '开发中常用的'
 
 # This description is used to generate tags and improve search results.
@@ -30,11 +30,11 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-s.source_files = 'YJThief/Classes/**/*'
+  s.source_files = 'YJThief/Classes/**/*'
 
-  # s.resource_bundles = {
-  #   'YJThief' => ['YJThief/Assets/*.png']
-  # }
+  s.resource_bundles = {
+    'YJThief' => ['YJThief/Assets/**/*.png']
+  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit', 'MobileCoreServices'

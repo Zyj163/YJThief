@@ -11,39 +11,39 @@
 
 @implementation UIBarButtonItem (YJExtension)
 
-+ (UIBarButtonItem *)customView:(NSString *)imageName title:(NSString *)title withTarget:(id)target action:(SEL)action
++ (UIBarButtonItem *)yj_customView:(NSString *)imageName title:(NSString *)title withTarget:(id)target action:(SEL)action
 {
-	UIButton *btn = [self setupWithImageName:imageName title:title];
-	[self setEvent:target action:action block:nil forBtn:btn];
+	UIButton *btn = [self yj_setupWithImageName:imageName title:title];
+	[self yj_setEvent:target action:action block:nil forBtn:btn];
 	UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn];
 	return item;
 }
 
-- (void)changeTarget:(id)target action:(SEL)action
+- (void)yj_changeTarget:(id)target action:(SEL)action
 {
 	if ([self.customView isKindOfClass:[UIButton class]]) {
 		UIButton *btn = (UIButton *)self.customView;
-		[self.class setEvent:target action:action block:nil forBtn:btn];
+		[self.class yj_setEvent:target action:action block:nil forBtn:btn];
 	}
 }
 
-+ (UIBarButtonItem *)customView:(NSString *)imageName title:(NSString *)title block:(void (^)(id))block
++ (UIBarButtonItem *)yj_customView:(NSString *)imageName title:(NSString *)title block:(void (^)(id))block
 {
-	UIButton *btn = [self setupWithImageName:imageName title:title];
-	[self setEvent:nil action:nil block:block forBtn:btn];
+	UIButton *btn = [self yj_setupWithImageName:imageName title:title];
+	[self yj_setEvent:nil action:nil block:block forBtn:btn];
 	UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn];
 	return item;
 }
 
-- (void)changeBlock:(void (^)(id))block
+- (void)yj_changeBlock:(void (^)(id))block
 {
 	if ([self.customView isKindOfClass:[UIButton class]]) {
 		UIButton *btn = (UIButton *)self.customView;
-		[self.class setEvent:nil action:nil block:block forBtn:btn];
+		[self.class yj_setEvent:nil action:nil block:block forBtn:btn];
 	}
 }
 
-+ (UIButton *)setupWithImageName:(NSString *)imageName title:(NSString *)title
++ (UIButton *)yj_setupWithImageName:(NSString *)imageName title:(NSString *)title
 {
 	UIButton *btn = [UIButton new];
 	[btn setImage:[[UIImage imageNamed:imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
@@ -57,7 +57,7 @@
 	return btn;
 }
 
-+ (void)setEvent:(id)target action:(SEL)action block:(void (^)(id))block forBtn:(UIButton *)btn
++ (void)yj_setEvent:(id)target action:(SEL)action block:(void (^)(id))block forBtn:(UIButton *)btn
 {
 	if (block) {
 		[btn setBlockForControlEvents:UIControlEventTouchUpInside block:block];

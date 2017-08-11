@@ -14,5 +14,6 @@
 #import "UIViewController+YJNavLoading.h"
 #import "UIWindow+YJExtension.h"
 #import "UIAlertController+YJExtension.h"
+#import "NSString+YJExtension.h"
 
 #endif /* YJCategories_h */

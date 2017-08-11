@@ -22,13 +22,13 @@
 - (void)yj_setTitle:(NSString *)title;
 - (void)yj_setTitle:(NSString *)title color:(UIColor *)color font:(UIFont *)font;
 
-- (void)startLoadingByActivityIndicatorView:(UIView<YJNavLoading> *)activityIndicatorView;
+- (void)yj_startLoadingByActivityIndicatorView:(UIView<YJNavLoading> *)activityIndicatorView;
 
-- (void)startLoading;
+- (void)yj_startLoading;
 
-- (void)stopLoading;
+- (void)yj_stopLoading;
 
-@property (assign, nonatomic, readonly) BOOL loading;
-@property (assign, nonatomic, readonly) CGSize activityIndicatorViewSize;
+@property (assign, nonatomic, readonly) BOOL yj_loading;
+@property (assign, nonatomic, readonly) CGSize yj_activityIndicatorViewSize;
 
 @end

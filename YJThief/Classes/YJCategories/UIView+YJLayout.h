@@ -17,6 +17,13 @@ typedef NS_ENUM(NSUInteger, YJAttachedViewShowType) {
 
 @interface UIView (YJLayout)
 
+#pragma mark - line layout
+- (void)yj_lineLayout:(NSArray<UIView *> *)views withPadding:(UIEdgeInsets)padding andSpace:(CGFloat)space withSetting:(void(^)(NSInteger idx, UIView *view))setting;
+- (void)yj_vlineLayout:(NSArray<UIView *> *)views withPadding:(UIEdgeInsets)padding andSpace:(CGFloat)space withSetting:(void(^)(NSInteger idx, UIView *view))setting;
+- (void)yj_lineButNoEqualWithLayout:(NSArray<UIView *> *)views withPadding:(UIEdgeInsets)padding andSpace:(CGFloat)space withSetting:(void(^)(NSInteger idx, UIView *view))setting;
+- (void)yj_vlineButNoEqualWithLayout:(NSArray<UIView *> *)views withPadding:(UIEdgeInsets)padding andSpace:(CGFloat)space withSetting:(void(^)(NSInteger idx, UIView *view))setting;
+
+
 #pragma mark - edge line
 @property (assign, nonatomic) UIEdgeInsets yj_edgeLines;
 @property (strong, nonatomic) NSMutableArray *yj_edgeLineViews;

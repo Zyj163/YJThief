@@ -14,6 +14,12 @@
 @interface YJViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UIView *lineLayoutView1;
+@property (weak, nonatomic) IBOutlet UIScrollView *lineLayoutView2;
+@property (weak, nonatomic) IBOutlet UIView *lineLayoutView3;
+@property (weak, nonatomic) IBOutlet UIView *lineLayoutView4;
+
+@property (strong, nonatomic) NSMutableArray *svs;
 
 @end
 
@@ -30,7 +36,44 @@
 	_textField.yj_attachedView = view;
 	
 	NSLog(@"%@", yj_getCurrentVC(yj_getCurrentWindow()));
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickOnCover:) name:YJWindowClickOnAnimationContainer object:nil];
+	_svs = [NSMutableArray array];
+	for (NSInteger i=0; i<4; i++) {
+		UIView *view1 = [UIView new];
+		UIView *view2 = [UIView new];
+		UIView *view3 = [UIView new];
+		UIView *view4 = [UIView new];
+		
+		[_lineLayoutView1 addSubview:view1];
+		[_lineLayoutView2 addSubview:view2];
+		[_lineLayoutView3 addSubview:view3];
+		[_lineLayoutView4 addSubview:view4];
+		
+		[_svs addObject:view2];
+	}
+	
+}
+
+- (void)viewDidLayoutSubviews
+{
+	[super viewDidLayoutSubviews];
+	
+	[_lineLayoutView1 yj_lineLayout:_lineLayoutView1.subviews withPadding:UIEdgeInsetsMake(5, 5, 5, 5) andSpace:5 withSetting:^(NSInteger idx, UIView *view) {
+		view.backgroundColor = [UIColor redColor];
+	}];
+	
+	[_lineLayoutView2 yj_lineButNoEqualWithLayout:_svs withPadding:UIEdgeInsetsMake(5, 5, 5, 5) andSpace:5 withSetting:^(NSInteger idx, UIView *view) {
+		view.backgroundColor = [UIColor blueColor];
+		view.bounds = (CGRect){CGPointZero, CGSizeMake(self.view.bounds.size.width / 5 + idx * 15, 0)};
+	}];
+	
+	[_lineLayoutView3 yj_vlineLayout:_lineLayoutView3.subviews withPadding:UIEdgeInsetsMake(5, 5, 5, 5) andSpace:5 withSetting:^(NSInteger idx, UIView *view) {
+		view.backgroundColor = [UIColor orangeColor];
+	}];
+	
+	[_lineLayoutView4 yj_vlineButNoEqualWithLayout:_lineLayoutView4.subviews withPadding:UIEdgeInsetsMake(5, 5, 5, 5) andSpace:5 withSetting:^(NSInteger idx, UIView *view) {
+		view.backgroundColor = [UIColor whiteColor];
+		view.bounds = (CGRect){CGPointZero, CGSizeMake(0, _lineLayoutView4.bounds.size.height / 6 + idx * 15)};
+	}];
 }
 
 - (IBAction)popoverView:(UIBarButtonItem *)sender {
@@ -45,16 +88,19 @@
 		[UIView animateWithDuration:0.25 animations:^{
 			testView.layer.bounds = CGRectMake(0, 0, 200, 200);
 		}];
+		
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickOnCover:) name:YJWindowClickOnAnimationContainer object:nil];
 	}];
 }
 
 - (void)clickOnCover:(NSNotification *)notify
 {
-	NSLog(@"%@", notify);
 	[yj_getCurrentWindow() yj_dismissInDuration:0.25 withAnimation:^(UIView *container) {
 		[UIView animateWithDuration:0.25 animations:^{
 			container.subviews[0].layer.bounds = CGRectMake(0, 0, 0, 0);
 		}];
+		
+		[[NSNotificationCenter defaultCenter] removeObserver:self name:YJWindowClickOnAnimationContainer object:nil];
 	}];
 }
 

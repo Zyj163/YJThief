@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "YJBottomTextBtn.h"
 #import "NSString+YJExtension.h"
 #import "UIAlertController+YJExtension.h"
 #import "UIBarButtonItem+YJExtension.h"

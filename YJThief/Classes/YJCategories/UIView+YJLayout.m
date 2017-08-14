@@ -13,6 +13,107 @@
 
 @implementation UIView (YJLayout)
 
+#pragma mark - line layout
+- (void)yj_lineLayout:(NSArray<UIView *> *)views withPadding:(UIEdgeInsets)padding andSpace:(CGFloat)space withSetting:(void(^)(NSInteger idx, UIView *view))setting
+{
+	if (views.count == 0) return;
+	for (NSInteger i=0; i<views.count; i++) {
+		UIView *view = views[i];
+		CGFloat h = self.bounds.size.height - padding.top - padding.bottom;
+		CGFloat y = padding.top;
+		
+		CGFloat w = (self.bounds.size.width - padding.left - padding.right - space * (views.count - 1)) / views.count;
+		
+		CGFloat x = padding.left + i * (w + space);
+		
+		view.frame = CGRectMake(x, y, w, h);
+		
+		if (setting) {
+			setting(i, view);
+		}
+	}
+}
+
+- (void)yj_vlineLayout:(NSArray<UIView *> *)views withPadding:(UIEdgeInsets)padding andSpace:(CGFloat)space withSetting:(void(^)(NSInteger idx, UIView *view))setting
+{
+	if (views.count == 0) return;
+	for (NSInteger i=0; i<views.count; i++) {
+		UIView *view = views[i];
+		CGFloat w = self.bounds.size.width - padding.left - padding.right;
+		CGFloat x = padding.left;
+		
+		CGFloat h = (self.bounds.size.height - padding.top - padding.bottom - space * (views.count - 1)) / views.count;
+		
+		CGFloat y = padding.top + i * (h + space);
+		
+		view.frame = CGRectMake(x, y, w, h);
+		
+		if (setting) {
+			setting(i, view);
+		}
+	}
+}
+
+- (void)yj_lineButNoEqualWithLayout:(NSArray<UIView *> *)views withPadding:(UIEdgeInsets)padding andSpace:(CGFloat)space withSetting:(void(^)(NSInteger idx, UIView *view))setting
+{
+	if (views.count == 0) return;
+	UIView *preView;
+	for (NSInteger i=0; i<views.count; i++) {
+		UIView *view = views[i];
+		CGFloat h = self.bounds.size.height - padding.top - padding.bottom;
+		CGFloat y = padding.top;
+		
+		[view sizeToFit];
+		
+		if (setting) {
+			setting(i, view);
+		}
+		
+		CGFloat w = view.bounds.size.width;
+		
+		CGFloat x = i == 0 ? padding.left : CGRectGetMaxX(preView.frame) + space;
+		
+		view.frame = CGRectMake(x, y, w, h);
+		
+		preView = view;
+	}
+	if ([self isKindOfClass:[UIScrollView class]]) {
+		UIScrollView *s = (UIScrollView *)self;
+		s.contentSize = CGSizeMake(CGRectGetMaxX(views.lastObject.frame) + padding.right, self.bounds.size.height);
+	}
+}
+
+- (void)yj_vlineButNoEqualWithLayout:(NSArray<UIView *> *)views withPadding:(UIEdgeInsets)padding andSpace:(CGFloat)space withSetting:(void(^)(NSInteger idx, UIView *view))setting
+{
+	if (views.count == 0) return;
+	UIView *preView;
+	for (NSInteger i=0; i<views.count; i++) {
+		UIView *view = views[i];
+		CGFloat w = self.bounds.size.width - padding.left - padding.right;
+		CGFloat x = padding.left;
+		
+		[view sizeToFit];
+		
+		if (setting) {
+			setting(i, view);
+		}
+		
+		CGFloat h = view.bounds.size.height;
+		
+		CGFloat y = i == 0 ? padding.top : CGRectGetMaxY(preView.frame) + space;
+		
+		view.frame = CGRectMake(x, y, w, h);
+		
+		preView = view;
+	}
+	if ([self isKindOfClass:[UIScrollView class]]) {
+		UIScrollView *s = (UIScrollView *)self;
+		s.contentSize = CGSizeMake(self.bounds.size.width, CGRectGetMaxY(views.lastObject.frame) + padding.bottom);
+	}
+}
+
+
+#pragma mark - edge line
 - (void)setYj_edgeLineViews:(NSMutableArray *)yj_edgeLineViews
 {
 	objc_setAssociatedObject(self, _cmd, yj_edgeLineViews, OBJC_ASSOCIATION_RETAIN_NONATOMIC);

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YJThief'
-  s.version          = '0.7.0'
+  s.version          = '0.8.0'
   s.summary          = '开发中常用的'
 
 # This description is used to generate tags and improve search results.
